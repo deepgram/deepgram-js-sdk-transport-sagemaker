@@ -1,0 +1,71 @@
+{
+  "name": "@deepgram/sagemaker",
+  "version": "0.1.0",
+  "description": "SageMaker transport for the Deepgram JavaScript SDK",
+  "keywords": [
+    "deepgram",
+    "sagemaker",
+    "aws",
+    "speech-to-text",
+    "text-to-speech",
+    "transcription"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker",
+  "bugs": {
+    "url": "https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker.git"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "packageManager": "npm@10.9.2",
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format cjs,esm --clean --sourcemap",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run build && npm run test",
+    "pack:check": "npm pack --dry-run",
+    "example:stt": "npm run build && node examples/stt.mjs",
+    "example:flux": "npm run build && node examples/flux.mjs",
+    "example:live-mic": "npm run build && node examples/live-mic.mjs",
+    "example:live-mic-flux": "npm run build && node examples/live-mic-flux.mjs",
+    "example:tts": "npm run build && node examples/tts.mjs",
+    "prepublishOnly": "npm run check"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sagemaker-runtime-http2": "^3.1040.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3",
+    "vitest": "^4.0.7"
+  }
+}
