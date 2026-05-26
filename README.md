@@ -19,7 +19,7 @@ This package targets the pluggable transport interface introduced in Deepgram JS
 ## Installation
 
 ```bash
-npm install @deepgram/sdk @deepgram/sagemaker@0.1.0 # x-release-please-version
+npm install @deepgram/sdk @deepgram/sagemaker@0.1.1 # x-release-please-version
 ```
 
 ## Authentication
