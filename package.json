@@ -59,6 +59,14 @@
     "example:tts": "npm run build && node examples/tts.mjs",
     "prepublishOnly": "npm run check"
   },
+  "peerDependencies": {
+    "@deepgram/sdk": ">=5.4.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepgram/sdk": {
+      "optional": false
+    }
+  },
   "dependencies": {
     "@aws-sdk/client-sagemaker-runtime-http2": "^3.1040.0"
   },

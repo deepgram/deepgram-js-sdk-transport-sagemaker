@@ -229,7 +229,7 @@ npm run example:tts
 
 Notes:
 
-- Examples expect an `@deepgram/sdk` build with `transportFactory` support.
+- Requires `@deepgram/sdk` >= 5.4.0 (the release that added `transportFactory` support).
 - Live microphone examples also require the optional `mic` package: `npm install mic`.
 - File-based examples expect `spacewalk.wav` in the repo root by default, or `AUDIO_FILE` can point to another WAV file.
 
