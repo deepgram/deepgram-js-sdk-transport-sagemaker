@@ -17,7 +17,7 @@ export interface DeepgramTransportRequest {
   headers: Record<string, string>;
   protocols: string[];
   path: string;
-  service: "agent.v1" | "listen.v1" | "listen.v2" | "speak.v1";
+  service: "agent.v1" | "listen.v1" | "listen.v2" | "speak.v1" | "speak.v2";
   queryParams: Record<string, unknown>;
   debug: boolean;
   reconnectAttempts: number;
