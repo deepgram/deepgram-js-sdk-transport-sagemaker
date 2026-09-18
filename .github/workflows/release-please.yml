@@ -73,6 +73,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Verify release version
+        env:
+          RELEASE_TAG: ${{ needs.release-please.outputs.release_tag }}
+        run: |
+          node -e 'const expected = process.env.RELEASE_TAG.replace(/^v/, ""); const actual = require("./package.json").version; if (actual !== expected) throw new Error(`package.json is ${actual}; expected ${expected} from ${process.env.RELEASE_TAG}`);'
+
       - name: Build package
         run: npm run check
 
