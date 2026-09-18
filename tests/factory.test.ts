@@ -1,3 +1,4 @@
+import { DeepgramClient } from "@deepgram/sdk";
 import { describe, expect, it, vi } from "vitest";
 
 import { createSageMakerTransportFactory } from "../src/factory";
@@ -105,5 +106,16 @@ describe("createSageMakerTransportFactory", () => {
 
   it("exports a naming-parity alias for the factory creator", () => {
     expect(SageMakerTransportFactoryAlias).toBe(createSageMakerTransportFactory);
+  });
+
+  it("is accepted by the current Deepgram SDK", () => {
+    const factory = createSageMakerTransportFactory(
+      { endpointName: "my-endpoint" },
+      { send: vi.fn() },
+    );
+
+    const client = new DeepgramClient({ apiKey: "test", transportFactory: factory });
+
+    expect(client).toBeInstanceOf(DeepgramClient);
   });
 });
