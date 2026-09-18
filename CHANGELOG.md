@@ -2,13 +2,13 @@
 
 ## [0.1.2](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/compare/v0.1.1...v0.1.2) (2026-09-18)
 
+Updates the SageMaker transport to match the Deepgram JavaScript SDK transport contract. Existing applications using a supported SDK version need no code changes.
 
 ### Bug Fixes
 
-* align transport support with SDK contract ([7ecaf2c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/7ecaf2c99fb2269be9bc4efc03942d0c698687c0))
-* clarify SDK compatibility ([4404f01](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/4404f017da5335dda15f395244088698e7ddc4bd))
-* correct @deepgram/sdk peer floor to 5.5.0 and speak.v2 type compatibility ([b07274c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/b07274cfc820f6ec347ff07ba559fa2d00096256))
-* support speak v2 transport requests ([c4c31eb](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/c4c31eb84758440214145cc4bf2d461ca86fbbae))
+* Require `@deepgram/sdk` `>=5.5.0 <6`, the supported range for the `transportFactory` interface. SDK `5.4.x` did not provide that interface and could not use this transport. ([b07274c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/b07274cfc820f6ec347ff07ba559fa2d00096256))
+* Align exported transport types with the SDK contract, preventing TypeScript compatibility errors when constructing `DeepgramClient` with `transportFactory`. ([7ecaf2c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/7ecaf2c99fb2269be9bc4efc03942d0c698687c0))
+* Add SageMaker transport compatibility for streaming Speak v2 requests, including graceful handling of the `Close` message. Speak v2 requires `@deepgram/sdk` `>=5.6.0`; a Flux TTS example is included. ([c4c31eb](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/c4c31eb84758440214145cc4bf2d461ca86fbbae))
 
 ## [0.1.1](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/compare/v0.1.0...v0.1.1) (2026-06-01)
 
