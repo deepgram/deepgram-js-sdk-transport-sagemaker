@@ -231,7 +231,8 @@ npm run example:tts
 
 Notes:
 
-- Requires `@deepgram/sdk` >= 5.5.0 (the first release with `transportFactory` support).
+- Requires `@deepgram/sdk` >= 5.5.0 and < 6 (the first release with `transportFactory` support).
+- `examples/flux-tts.mjs` requires `@deepgram/sdk` >= 5.6.0 for Speak v2 support.
 - Live microphone examples also require the optional `mic` package: `npm install mic`.
 - File-based examples expect `spacewalk.wav` in the repo root by default, or `AUDIO_FILE` can point to another WAV file.
 

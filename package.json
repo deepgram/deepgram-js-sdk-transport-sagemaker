@@ -61,7 +61,7 @@
     "prepublishOnly": "npm run check"
   },
   "peerDependencies": {
-    "@deepgram/sdk": ">=5.5.0"
+    "@deepgram/sdk": ">=5.5.0 <6"
   },
   "peerDependenciesMeta": {
     "@deepgram/sdk": {
