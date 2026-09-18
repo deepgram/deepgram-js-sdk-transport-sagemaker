@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.1.3](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/compare/v0.1.2...v0.1.3) (2026-09-18)
+
+
+### Features
+
+* initial SageMaker transport for the Deepgram JavaScript SDK ([4e21f8d](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/4e21f8ded975e7e64d45835d100650a2dd2b20dd))
+
+
+### Bug Fixes
+
+* align transport support with SDK contract ([7ecaf2c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/7ecaf2c99fb2269be9bc4efc03942d0c698687c0))
+* clarify SDK compatibility ([4404f01](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/4404f017da5335dda15f395244088698e7ddc4bd))
+* correct @deepgram/sdk peer floor to 5.5.0 and speak.v2 type compatibility ([b07274c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/b07274cfc820f6ec347ff07ba559fa2d00096256))
+* require @deepgram/sdk &gt;=5.4.0 for transportFactory support ([606dd67](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/606dd6702cc44a28a1cc573d4ed61bceb4cc7242))
+* require @deepgram/sdk &gt;=5.4.0 for transportFactory support ([3795ad2](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/3795ad215ce24dee2afd93facd2415743b44736e))
+* support speak v2 transport requests ([c4c31eb](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/c4c31eb84758440214145cc4bf2d461ca86fbbae))
+
 ## [0.1.2](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/compare/v0.1.1...v0.1.2) (2026-09-18)
 
 Updates the SageMaker transport to match the Deepgram JavaScript SDK transport contract. Existing applications using a supported SDK version need no code changes.
