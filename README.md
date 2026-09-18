@@ -209,10 +209,11 @@ npm run pack:check
 
 ## Examples
 
-This repo now includes the same five example categories as the Python and Java transport repos:
+This repo now includes six streaming example categories:
 
 - `examples/stt.mjs`
 - `examples/flux.mjs`
+- `examples/flux-tts.mjs`
 - `examples/live-mic.mjs`
 - `examples/live-mic-flux.mjs`
 - `examples/tts.mjs`
@@ -222,6 +223,7 @@ Run them with:
 ```bash
 npm run example:stt
 npm run example:flux
+npm run example:flux-tts
 npm run example:live-mic
 npm run example:live-mic-flux
 npm run example:tts
@@ -229,7 +231,7 @@ npm run example:tts
 
 Notes:
 
-- Requires `@deepgram/sdk` >= 5.4.0 (the release that added `transportFactory` support).
+- Requires `@deepgram/sdk` >= 5.5.0 (the first release with `transportFactory` support).
 - Live microphone examples also require the optional `mic` package: `npm install mic`.
 - File-based examples expect `spacewalk.wav` in the repo root by default, or `AUDIO_FILE` can point to another WAV file.
 

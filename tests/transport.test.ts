@@ -270,6 +270,40 @@ describe("SageMakerTransport", () => {
     });
   });
 
+  it("treats a speak.v2 Close as a normal close and does not support ping", async () => {
+    const client = new MockClient();
+    const transport = new SageMakerTransport({
+      client,
+      config,
+      invocationPath: "v2/speak",
+      queryString: "model=flux-haley-en",
+      service: "speak.v2",
+    });
+    const closeEvents: Array<{ code?: number; reason?: string }> = [];
+    const errors: Error[] = [];
+    transport.onClose((event) => {
+      closeEvents.push(event);
+    });
+    transport.onError((error) => {
+      errors.push(error);
+    });
+
+    expect(() => transport.ping()).toThrow("Ping is not supported for speak.v2");
+
+    await transport.send('{"type":"Close"}');
+    client.responses.push({
+      ModelStreamError: {
+        Message: "model idle timeout",
+        ErrorCode: "ModelError",
+      },
+    } as ResponseStreamEvent);
+    await flush();
+
+    expect(closeEvents).toEqual([{ code: 1000, reason: "Normal" }]);
+    expect(errors).toEqual([]);
+    expect(transport.isOpen()).toBe(false);
+  });
+
   it("emits close when the response stream ends", async () => {
     const client = new MockClient();
     const transport = new SageMakerTransport({

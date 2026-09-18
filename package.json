@@ -54,13 +54,14 @@
     "pack:check": "npm pack --dry-run",
     "example:stt": "npm run build && node examples/stt.mjs",
     "example:flux": "npm run build && node examples/flux.mjs",
+    "example:flux-tts": "npm run build && node examples/flux-tts.mjs",
     "example:live-mic": "npm run build && node examples/live-mic.mjs",
     "example:live-mic-flux": "npm run build && node examples/live-mic-flux.mjs",
     "example:tts": "npm run build && node examples/tts.mjs",
     "prepublishOnly": "npm run check"
   },
   "peerDependencies": {
-    "@deepgram/sdk": ">=5.4.0"
+    "@deepgram/sdk": ">=5.5.0"
   },
   "peerDependenciesMeta": {
     "@deepgram/sdk": {

@@ -18,6 +18,7 @@ const textEncoder = new TextEncoder();
 const textDecoder = new TextDecoder();
 
 export type RetryClassification = "RETRYABLE" | "TERMINAL";
+type StreamingService = DeepgramTransportRequest["service"] | "speak.v2";
 
 /**
  * Full-jitter exponential backoff. Pure function for testability.
@@ -245,7 +246,7 @@ export class SageMakerTransport implements DeepgramTransport {
       config: ResolvedSageMakerConfig;
       invocationPath: string;
       queryString: string;
-      service: DeepgramTransportRequest["service"];
+      service: StreamingService;
       abortSignal?: AbortSignal;
     },
   ) {
@@ -326,7 +327,7 @@ export class SageMakerTransport implements DeepgramTransport {
 
     // Track close signals so the model's idle timeout after the user-side
     // close is treated as a normal close rather than a stream error to
-    // retry. Covers listen.v1/v2's `CloseStream`/`Finalize` and speak.v1's
+    // retry. Covers listen.v1/v2's `CloseStream`/`Finalize` and speak.v1/v2's
     // `Close` (TTS). Strip whitespace so this stays robust against
     // serializers that emit `"type": "CloseStream"` with a space.
     if (typeof message === "string") {
