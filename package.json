@@ -1,6 +1,6 @@
 {
   "name": "@deepgram/sagemaker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "SageMaker transport for the Deepgram JavaScript SDK",
   "keywords": [
     "deepgram",

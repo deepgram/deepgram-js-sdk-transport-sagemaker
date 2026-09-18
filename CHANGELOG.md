@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.1.2](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/compare/v0.1.1...v0.1.2) (2026-09-18)
+
+Updates the SageMaker transport to match the Deepgram JavaScript SDK transport contract. Existing applications using a supported SDK version need no code changes.
+
+### Bug Fixes
+
+* Require `@deepgram/sdk` `>=5.5.0 <6`, the supported range for the `transportFactory` interface. SDK `5.4.x` did not provide that interface and could not use this transport. ([b07274c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/b07274cfc820f6ec347ff07ba559fa2d00096256))
+* Align exported transport types with the SDK contract, preventing TypeScript compatibility errors when constructing `DeepgramClient` with `transportFactory`. ([7ecaf2c](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/7ecaf2c99fb2269be9bc4efc03942d0c698687c0))
+* Add SageMaker transport compatibility for streaming Speak v2 requests, including graceful handling of the `Close` message. Speak v2 requires `@deepgram/sdk` `>=5.6.0`; a Flux TTS example is included. ([c4c31eb](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/commit/c4c31eb84758440214145cc4bf2d461ca86fbbae))
+
 ## [0.1.1](https://github.com/deepgram/deepgram-js-sdk-transport-sagemaker/compare/v0.1.0...v0.1.1) (2026-06-01)
 
 First published release of the SageMaker transport for the Deepgram JavaScript SDK. Routes the SDK's streaming connections through an AWS SageMaker bidirectional HTTP/2 endpoint via the SDK's `transportFactory` option, leaving the rest of the Deepgram client API unchanged.
